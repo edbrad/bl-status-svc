@@ -1,12 +1,20 @@
 ﻿using System;
+using System.Threading;
 
 namespace bl_status_svc
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(
+          string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var sleep = 3000;
+            if (args.Length > 0) { int.TryParse(args[0], out sleep); }
+            while (true)
+            {
+                Console.WriteLine($"bl-status-svc: Working, pausing for {sleep}ms");
+                Thread.Sleep(sleep);
+            }
         }
     }
 }

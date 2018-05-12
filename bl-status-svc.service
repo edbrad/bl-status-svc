@@ -1,0 +1,10 @@
+[Unit]
+Description=bl-status: Superintendent Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/dotnet /home/edbrad/Documents/bl-status-svc/bin/bl-status-svc.dll
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

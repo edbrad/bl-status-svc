@@ -1,0 +1,11 @@
+/home/edbrad/Documents/bl-status-svc/bin/Release/netcoreapp2.0/bl-status-svc.deps.json
+/home/edbrad/Documents/bl-status-svc/bin/Release/netcoreapp2.0/bl-status-svc.runtimeconfig.json
+/home/edbrad/Documents/bl-status-svc/bin/Release/netcoreapp2.0/bl-status-svc.runtimeconfig.dev.json
+/home/edbrad/Documents/bl-status-svc/bin/Release/netcoreapp2.0/bl-status-svc.dll
+/home/edbrad/Documents/bl-status-svc/bin/Release/netcoreapp2.0/bl-status-svc.pdb
+/home/edbrad/Documents/bl-status-svc/obj/Release/netcoreapp2.0/bl-status-svc.csprojAssemblyReference.cache
+/home/edbrad/Documents/bl-status-svc/obj/Release/netcoreapp2.0/bl-status-svc.csproj.CoreCompileInputs.cache
+/home/edbrad/Documents/bl-status-svc/obj/Release/netcoreapp2.0/bl-status-svc.AssemblyInfoInputs.cache
+/home/edbrad/Documents/bl-status-svc/obj/Release/netcoreapp2.0/bl-status-svc.AssemblyInfo.cs
+/home/edbrad/Documents/bl-status-svc/obj/Release/netcoreapp2.0/bl-status-svc.dll
+/home/edbrad/Documents/bl-status-svc/obj/Release/netcoreapp2.0/bl-status-svc.pdb
