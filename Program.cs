@@ -94,25 +94,25 @@ namespace bl_status_svc
         static BsonDocument[] CreateSeedData()
         {
             BsonDocument seventies = new BsonDocument {
-        { "Decade" , "1970s" },
-        { "Artist" , "Debby Boone" },
-        { "Title" , "You Light Up My Life" },
-        { "WeeksAtOne" , 10 }
-      };
+                { "Decade" , "1970s" },
+                { "Artist" , "Debby Boone" },
+                { "Title" , "You Light Up My Life" },
+                { "WeeksAtOne" , 10 }
+            };
 
             BsonDocument eighties = new BsonDocument {
-        { "Decade" , "1980s" },
-        { "Artist" , "Olivia Newton-John" },
-        { "Title" , "Physical" },
-        { "WeeksAtOne" , 10 }
-      };
+                { "Decade" , "1980s" },
+                { "Artist" , "Olivia Newton-John" },
+                { "Title" , "Physical" },
+                { "WeeksAtOne" , 10 }
+            };
 
             BsonDocument nineties = new BsonDocument {
-        { "Decade" , "1990s" },
-        { "Artist" , "Mariah Carey" },
-        { "Title" , "One Sweet Day" },
-        { "WeeksAtOne" , 16 }
-      };
+                { "Decade" , "1990s" },
+                { "Artist" , "Mariah Carey" },
+                { "Title" , "One Sweet Day" },
+                { "WeeksAtOne" , 16 }
+            };
 
             BsonDocument[] SeedData = { seventies, eighties, nineties };
             return SeedData;
