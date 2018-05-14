@@ -9,6 +9,7 @@ using NLog.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Core;
+using FluentScheduler;
 
 namespace bl_status_svc
 {
@@ -17,22 +18,31 @@ namespace bl_status_svc
 
         /// <summary>
         /// BL-STATUS-SVC: Box Loading Status Superintendent Service
+        /// Runs scheduled system maintenance/management/reporting Jobs in the background 
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            var sleep = 3000;
-            AssemblyLoadContext.Default.Unloading += SigTermEventHandler;
-            Console.CancelKeyPress += new ConsoleCancelEventHandler(CancelHandler);
-
             // Initialize Logger
             var logger = NLog.LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
             logger.Debug("Logging started!");
 
+            // Add Event Handlers
+            AssemblyLoadContext.Default.Unloading += SigTermEventHandler;
+            Console.CancelKeyPress += new ConsoleCancelEventHandler(CancelHandler);
+            JobManager.JobException += info => logger.Fatal("bl-status-svc: An error just happened with a scheduled job: " + info.Exception);
+
             // Run Work/Test Code
+            var sleep = 3000;
             BsonDocument[] seedData = CreateSeedData();
             AsyncCrud(seedData).Wait();
 
+            // Initialize Job Registry
+            var jobRegistry = new Registry();
+            // -- Test Job
+            jobRegistry.Schedule<TestJob>().ToRunNow().AndEvery(2).Seconds();
+            JobManager.Initialize(jobRegistry);
+            
             // Run Logging Test
             if (args.Length > 0) { int.TryParse(args[0], out sleep); }
             while (true)
@@ -50,6 +60,8 @@ namespace bl_status_svc
         private static void SigTermEventHandler(AssemblyLoadContext obj)
         {
             Console.WriteLine("bl-status-svc: Unloading...");
+            // Stop the Job Scheduler
+            JobManager.Stop();
             // NLog: flush and stop internal timers/threads before 
             // application-exit (Avoid segmentation fault on Linux)
             NLog.LogManager.Shutdown();
@@ -63,6 +75,8 @@ namespace bl_status_svc
         private static void CancelHandler(object sender, ConsoleCancelEventArgs e)
         {
             Console.WriteLine("bl-status-svc: Canceled. Exiting...");
+            // Stop the Job Scheduler
+            JobManager.Stop();
             // Ensure to flush and stop internal timers/threads before 
             // application-exit (Avoid segmentation fault on Linux)
             NLog.LogManager.Shutdown();
