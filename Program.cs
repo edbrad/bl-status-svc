@@ -29,9 +29,11 @@ namespace bl_status_svc
             var logger = NLog.LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
             logger.Debug("Logging started!");
 
+            // Run Work/Test Code
             BsonDocument[] seedData = CreateSeedData();
             AsyncCrud(seedData).Wait();
 
+            // Run Logging Test
             if (args.Length > 0) { int.TryParse(args[0], out sleep); }
             while (true)
             {
@@ -48,7 +50,8 @@ namespace bl_status_svc
         private static void SigTermEventHandler(AssemblyLoadContext obj)
         {
             Console.WriteLine("bl-status-svc: Unloading...");
-            // Ensure to flush and stop internal timers/threads before application-exit (Avoid segmentation fault on Linux)
+            // NLog: flush and stop internal timers/threads before 
+            // application-exit (Avoid segmentation fault on Linux)
             NLog.LogManager.Shutdown();
         }
 
@@ -60,22 +63,24 @@ namespace bl_status_svc
         private static void CancelHandler(object sender, ConsoleCancelEventArgs e)
         {
             Console.WriteLine("bl-status-svc: Canceled. Exiting...");
-            // Ensure to flush and stop internal timers/threads before application-exit (Avoid segmentation fault on Linux)
+            // Ensure to flush and stop internal timers/threads before 
+            // application-exit (Avoid segmentation fault on Linux)
             NLog.LogManager.Shutdown();
         }
 
         /// <summary>
-        /// Dependancy Injection Provider (For: NILog). 
+        /// Dependancy Injection Service Provider (For: NILog). 
         /// Allows other Classes to reference a single instance of the Logger
         /// </summary>
         /// <returns></returns>
-         private static IServiceProvider BuildDi()
+        private static IServiceProvider BuildDi()
         {
             var services = new ServiceCollection();
 
             // Add the custom class(es) that will reference Singleton(s)
             //services.AddTransient<Runner>();
 
+            // Build Injectable Logger Service (using NLog)
             services.AddSingleton<ILoggerFactory, LoggerFactory>();
             services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
             services.AddLogging((builder) => builder.SetMinimumLevel(LogLevel.Trace));
@@ -84,10 +89,13 @@ namespace bl_status_svc
 
             var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
 
-            //configure NLog
+            // Configure NLog
             loggerFactory.AddNLog(new NLogProviderOptions { CaptureMessageTemplates = true, CaptureMessageProperties = true });
+            
+            // Expose Injectable Service(es)
             return serviceProvider;
         }
+
         /// <summary>
         /// Work Code (MongoDB CRUD Testing)
         /// </summary>

@@ -5463,6 +5463,7 @@
       "Microsoft.Extensions.DependencyInjection >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "MongoDB.Driver >= 2.6.0",
+      "NLog >= 4.5.4",
       "NLog.Extensions.Logging >= 1.0.2"
     ]
   },
@@ -5517,6 +5518,10 @@
           "MongoDB.Driver": {
             "target": "Package",
             "version": "[2.6.0, )"
+          },
+          "NLog": {
+            "target": "Package",
+            "version": "[4.5.4, )"
           },
           "NLog.Extensions.Logging": {
             "target": "Package",
