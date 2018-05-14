@@ -1,8 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Runtime.Loader;
-using Logging;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Core;
@@ -12,11 +15,19 @@ namespace bl_status_svc
     class Program
     {
 
+        /// <summary>
+        /// BL-STATUS-SVC: Box Loading Status Superintendent Service
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             var sleep = 3000;
             AssemblyLoadContext.Default.Unloading += SigTermEventHandler;
             Console.CancelKeyPress += new ConsoleCancelEventHandler(CancelHandler);
+
+            // Initialize Logger
+            var logger = NLog.LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
+            logger.Debug("Logging started!");
 
             BsonDocument[] seedData = CreateSeedData();
             AsyncCrud(seedData).Wait();
@@ -24,24 +35,64 @@ namespace bl_status_svc
             if (args.Length > 0) { int.TryParse(args[0], out sleep); }
             while (true)
             {
-                Logger.Log($"bl-status-svc: Working, pausing for {sleep}ms", LogLevel.Info);
                 Console.WriteLine($"bl-status-svc: Working, pausing for {sleep}ms");
+                logger.Info($"bl-status-svc: Working, pausing for {sleep}ms");
                 Thread.Sleep(sleep);
             }
         }
 
+        /// <summary>
+        /// Service Shutdown Event Handler
+        /// </summary>
+        /// <param name="obj"></param>
         private static void SigTermEventHandler(AssemblyLoadContext obj)
         {
-            Logger.Log("bl-status-svc: Unloading...", LogLevel.Info);
             Console.WriteLine("bl-status-svc: Unloading...");
+            // Ensure to flush and stop internal timers/threads before application-exit (Avoid segmentation fault on Linux)
+            NLog.LogManager.Shutdown();
         }
 
+        /// <summary>
+        /// Service Cancel Handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void CancelHandler(object sender, ConsoleCancelEventArgs e)
         {
-            Logger.Log("bl-status-svc: Canceled. Exiting...", LogLevel.Warning);
             Console.WriteLine("bl-status-svc: Canceled. Exiting...");
+            // Ensure to flush and stop internal timers/threads before application-exit (Avoid segmentation fault on Linux)
+            NLog.LogManager.Shutdown();
         }
 
+        /// <summary>
+        /// Dependancy Injection Provider (For: NILog). 
+        /// Allows other Classes to reference a single instance of the Logger
+        /// </summary>
+        /// <returns></returns>
+         private static IServiceProvider BuildDi()
+        {
+            var services = new ServiceCollection();
+
+            // Add the custom class(es) that will reference Singleton(s)
+            //services.AddTransient<Runner>();
+
+            services.AddSingleton<ILoggerFactory, LoggerFactory>();
+            services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
+            services.AddLogging((builder) => builder.SetMinimumLevel(LogLevel.Trace));
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
+
+            //configure NLog
+            loggerFactory.AddNLog(new NLogProviderOptions { CaptureMessageTemplates = true, CaptureMessageProperties = true });
+            return serviceProvider;
+        }
+        /// <summary>
+        /// Work Code (MongoDB CRUD Testing)
+        /// </summary>
+        /// <param name="seedData"></param>
+        /// <returns></returns>
         async static Task AsyncCrud(BsonDocument[] seedData)
         {
             // Create seed data
@@ -90,7 +141,10 @@ namespace bl_status_svc
             //await db.DropCollectionAsync("songs");
         }
 
-        // Extra helper code
+        /// <summary>
+        /// Work Code (data)
+        /// </summary>
+        /// <returns></returns>
         static BsonDocument[] CreateSeedData()
         {
             BsonDocument seventies = new BsonDocument {
