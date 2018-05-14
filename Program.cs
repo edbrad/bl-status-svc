@@ -37,13 +37,17 @@ namespace bl_status_svc
             BsonDocument[] seedData = CreateSeedData();
             AsyncCrud(seedData).Wait();
 
-            // Initialize Job Registry
+            // Inject Logger Into Scheduler Job Classes
+            var servicesProvider = BuildDi();
+            var testJob = servicesProvider.GetRequiredService<TestJob>();
+
+            // Initialize Job Manager
             var jobRegistry = new Registry();
-            // -- Test Job
-            jobRegistry.Schedule<TestJob>().ToRunNow().AndEvery(2).Seconds();
+            // -- schedule Test Job
+            jobRegistry.Schedule(testJob).ToRunNow().AndEvery(2).Seconds();
+            // -- load all scheduled Jobs
             JobManager.Initialize(jobRegistry);
-            
-            // Run Logging Test
+
             if (args.Length > 0) { int.TryParse(args[0], out sleep); }
             while (true)
             {
@@ -92,7 +96,8 @@ namespace bl_status_svc
             var services = new ServiceCollection();
 
             // Add the custom class(es) that will reference Singleton(s)
-            //services.AddTransient<Runner>();
+            //private readonly Logger<TestJob> logger;
+            services.AddTransient<TestJob>();
 
             // Build Injectable Logger Service (using NLog)
             services.AddSingleton<ILoggerFactory, LoggerFactory>();

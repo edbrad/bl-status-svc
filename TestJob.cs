@@ -1,15 +1,18 @@
 using System;
 using FluentScheduler;
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 
 public class TestJob : IJob
 {
     private readonly object _lock = new object();
-
+    private readonly ILogger<TestJob> _logger;
     private bool _shuttingDown;
 
-    public TestJob()
+    public TestJob(ILogger<TestJob> logger)
     {
         // Initialize
+        _logger = logger;
 
     }
 
@@ -24,6 +27,7 @@ public class TestJob : IJob
 
                 // Do work, son!
                 Console.WriteLine("Test Job Doing Work!");
+                _logger.LogDebug("Logger: Test Job Doing Work!");
             }
         }
         finally
