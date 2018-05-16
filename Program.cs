@@ -3,6 +3,8 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Runtime.Loader;
+using System.Linq;
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
@@ -10,11 +12,14 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Core;
 using FluentScheduler;
+using Microsoft.Extensions.Configuration;
 
 namespace bl_status_svc
 {
     class Program
     {
+
+        public static IConfiguration configuration { get; set; }
 
         /// <summary>
         /// BL-STATUS-SVC: Box Loading Status Superintendent Service
@@ -27,6 +32,16 @@ namespace bl_status_svc
             var logger = NLog.LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
             logger.Debug("Logging started!");
 
+            // Get Configuration
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            IConfigurationRoot configuration = builder.Build();
+            
+
+            Console.WriteLine("Configuration: " + (configuration.GetSection("EmailConfiguration").ToJson()));
+
             // Add Event Handlers
             AssemblyLoadContext.Default.Unloading += SigTermEventHandler;
             Console.CancelKeyPress += new ConsoleCancelEventHandler(CancelHandler);
@@ -36,6 +51,7 @@ namespace bl_status_svc
             var sleep = 3000;
             BsonDocument[] seedData = CreateSeedData();
             AsyncCrud(seedData).Wait();
+
 
             // Inject Logger Into Scheduler Job Classes
             var servicesProvider = BuildDi();
@@ -96,21 +112,25 @@ namespace bl_status_svc
             var services = new ServiceCollection();
 
             // Add the custom class(es) that will reference Singleton(s)
-            //private readonly Logger<TestJob> logger;
             services.AddTransient<TestJob>();
+            services.AddTransient<IEmailService, EmailService>();
 
             // Build Injectable Logger Service (using NLog)
             services.AddSingleton<ILoggerFactory, LoggerFactory>();
             services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
             services.AddLogging((builder) => builder.SetMinimumLevel(LogLevel.Trace));
 
+            // Build Injectable Email Configuration (using MailKit)
+            //services.AddSingleton<IEmailConfiguration>(configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
+            //services.AddSingleton<IEmailConfiguration>(configuration.GetSection("EmailConfiguration").);
+            
             var serviceProvider = services.BuildServiceProvider();
 
             var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
 
             // Configure NLog
             loggerFactory.AddNLog(new NLogProviderOptions { CaptureMessageTemplates = true, CaptureMessageProperties = true });
-            
+
             // Expose Injectable Service(es)
             return serviceProvider;
         }
