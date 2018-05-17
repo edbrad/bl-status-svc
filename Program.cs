@@ -18,9 +18,6 @@ namespace bl_status_svc
 {
     class Program
     {
-
-        public static IConfiguration configuration { get; set; }
-
         /// <summary>
         /// BL-STATUS-SVC: Box Loading Status Superintendent Service
         /// Runs scheduled system maintenance/management/reporting Jobs in the background 
@@ -32,16 +29,6 @@ namespace bl_status_svc
             var logger = NLog.LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
             logger.Debug("Logging started!");
 
-            // Get Configuration
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
-
-            IConfigurationRoot configuration = builder.Build();
-            
-
-            Console.WriteLine("Configuration: " + (configuration.GetSection("EmailConfiguration").ToJson()));
-
             // Add Event Handlers
             AssemblyLoadContext.Default.Unloading += SigTermEventHandler;
             Console.CancelKeyPress += new ConsoleCancelEventHandler(CancelHandler);
@@ -49,9 +36,6 @@ namespace bl_status_svc
 
             // Run Work/Test Code
             var sleep = 3000;
-            BsonDocument[] seedData = CreateSeedData();
-            AsyncCrud(seedData).Wait();
-
 
             // Inject Logger Into Scheduler Job Classes
             var servicesProvider = BuildDi();
@@ -60,16 +44,14 @@ namespace bl_status_svc
             // Initialize Job Manager
             var jobRegistry = new Registry();
             // -- schedule Test Job
-            jobRegistry.Schedule(testJob).ToRunNow().AndEvery(2).Seconds();
+            jobRegistry.Schedule(testJob).ToRunNow().AndEvery(15).Seconds();
             // -- load all scheduled Jobs
             JobManager.Initialize(jobRegistry);
 
             if (args.Length > 0) { int.TryParse(args[0], out sleep); }
             while (true)
             {
-                Console.WriteLine($"bl-status-svc: Working, pausing for {sleep}ms");
-                logger.Info($"bl-status-svc: Working, pausing for {sleep}ms");
-                Thread.Sleep(sleep);
+                
             }
         }
 
@@ -113,16 +95,11 @@ namespace bl_status_svc
 
             // Add the custom class(es) that will reference Singleton(s)
             services.AddTransient<TestJob>();
-            services.AddTransient<IEmailService, EmailService>();
 
             // Build Injectable Logger Service (using NLog)
             services.AddSingleton<ILoggerFactory, LoggerFactory>();
             services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
             services.AddLogging((builder) => builder.SetMinimumLevel(LogLevel.Trace));
-
-            // Build Injectable Email Configuration (using MailKit)
-            //services.AddSingleton<IEmailConfiguration>(configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
-            //services.AddSingleton<IEmailConfiguration>(configuration.GetSection("EmailConfiguration").);
             
             var serviceProvider = services.BuildServiceProvider();
 
@@ -135,88 +112,5 @@ namespace bl_status_svc
             return serviceProvider;
         }
 
-        /// <summary>
-        /// Work Code (MongoDB CRUD Testing)
-        /// </summary>
-        /// <param name="seedData"></param>
-        /// <returns></returns>
-        async static Task AsyncCrud(BsonDocument[] seedData)
-        {
-            // Create seed data
-            BsonDocument[] songData = seedData;
-
-            // Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname
-            String uri = "mongodb://127.0.0.1:27017/db";
-
-            var client = new MongoClient(uri);
-            var db = client.GetDatabase("db");
-
-            /*
-             * First we'll add a few songs. Nothing is required to create the
-             * songs collection; it is created automatically when we insert.
-             */
-
-            var songs = db.GetCollection<BsonDocument>("songs");
-
-            // Use InsertOneAsync for single BsonDocument insertion.
-            await songs.InsertManyAsync(songData);
-
-            /*
-             * Then we need to give Boyz II Men credit for their contribution to
-             * the hit "One Sweet Day".
-             */
-
-            var updateFilter = Builders<BsonDocument>.Filter.Eq("Title", "One Sweet Day");
-            var update = Builders<BsonDocument>.Update.Set("Artist", "Mariah Carey ft. Boyz II Men");
-
-            await songs.UpdateOneAsync(updateFilter, update);
-
-            /*
-             * Finally we run a query which returns all the hits that spent 10 
-             * or more weeks at number 1.
-             */
-
-            var filter = Builders<BsonDocument>.Filter.Gte("WeeksAtOne", 10);
-            var sort = Builders<BsonDocument>.Sort.Ascending("Decade");
-
-            await songs.Find(filter).Sort(sort).ForEachAsync(song =>
-              Console.WriteLine("In the {0}, {1} by {2} topped the charts for {3} straight weeks",
-                song["Decade"], song["Title"], song["Artist"], song["WeeksAtOne"])
-            );
-
-            // Since this is an example, we'll clean up after ourselves.
-            //await db.DropCollectionAsync("songs");
-        }
-
-        /// <summary>
-        /// Work Code (data)
-        /// </summary>
-        /// <returns></returns>
-        static BsonDocument[] CreateSeedData()
-        {
-            BsonDocument seventies = new BsonDocument {
-                { "Decade" , "1970s" },
-                { "Artist" , "Debby Boone" },
-                { "Title" , "You Light Up My Life" },
-                { "WeeksAtOne" , 10 }
-            };
-
-            BsonDocument eighties = new BsonDocument {
-                { "Decade" , "1980s" },
-                { "Artist" , "Olivia Newton-John" },
-                { "Title" , "Physical" },
-                { "WeeksAtOne" , 10 }
-            };
-
-            BsonDocument nineties = new BsonDocument {
-                { "Decade" , "1990s" },
-                { "Artist" , "Mariah Carey" },
-                { "Title" , "One Sweet Day" },
-                { "WeeksAtOne" , 16 }
-            };
-
-            BsonDocument[] SeedData = { seventies, eighties, nineties };
-            return SeedData;
-        }
     }
 }

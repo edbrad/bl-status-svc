@@ -28,10 +28,10 @@ public class EmailService : IEmailService
         //Be careful that the SmtpClient class is the one from Mailkit not the framework!
         using (var emailClient = new SmtpClient())
         {
-            //The last parameter here is to use SSL (Which you should!)
+            // Connect to the Server
             emailClient.Connect("smtp.gmail.com", 587);
 
-            //Remove any OAuth functionality as we won't be using it. 
+            // Remove any OAuth functionality as we won't be using it. 
             emailClient.AuthenticationMechanisms.Remove("XOAUTH2");
 
             emailClient.Authenticate("edbrad45@gmail.com", "eddie123a");
