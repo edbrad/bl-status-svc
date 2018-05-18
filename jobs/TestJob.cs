@@ -8,14 +8,23 @@ using NLog.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Core;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
 
 public class TestJob : IJob
 {
     private readonly object _lock = new object();
     private readonly ILogger<TestJob> _logger;
     private bool _shuttingDown;
-
     EmailService _email = new EmailService();
+
+    List<String> jsondata = new List<String>();
+    string url = "";
+    
+    Boolean IsApiAvailable = false;
+    string testResponse = "";
 
     public TestJob(ILogger<TestJob> logger)
     {
@@ -23,10 +32,29 @@ public class TestJob : IJob
         _logger = logger;
     }
 
-    public void Execute()
+    public async void Execute()
     {
         try
         {
+                // Make API Call
+                // - verify that API endpoint is available
+                IsApiAvailable = false;
+                jsondata.Clear();
+                url = "https://jsonplaceholder.typicode.com/users";
+
+                _logger.LogDebug("Testing Backend API Connection to: " + url + "...");
+                try
+                {
+                    testResponse = await GetRequestAsync(url);
+                    _logger.LogDebug("API Response: " + testResponse);
+                    IsApiAvailable = true;
+                }
+                catch (HttpRequestException ex)
+                {
+                    IsApiAvailable = false;
+                    _logger.LogDebug("ERROR - Backend API Connection failure - HTTP Request Error:\n " + ex);
+                }
+
             lock (_lock)
             {
                 if (_shuttingDown)
@@ -46,24 +74,24 @@ public class TestJob : IJob
 
                 // - compose message
                 List<EmailAddress> toAddresses = new List<EmailAddress>();
-                List<EmailAddress> fromAddresses = new List<EmailAddress>();
-                toAddresses.Add(new EmailAddress() 
-                { 
-                    Name = "Edward Bradley", 
-                    Address = "edb@edbrad.com" 
+                toAddresses.Add(new EmailAddress()
+                {
+                    Name = "Edward Bradley",
+                    Address = "edb@emsmail.com"
                 });
 
-                fromAddresses.Add(new EmailAddress() 
-                { 
-                    Name = "Box Loading Status - Superintendent Service", 
-                    Address = "bl-status-svc@gmail.com" 
+                List<EmailAddress> fromAddresses = new List<EmailAddress>();
+                fromAddresses.Add(new EmailAddress()
+                {
+                    Name = "Box Loading Status - Superintendent Service",
+                    Address = "bl-status-svc@emsmail.com"
                 });
 
                 emailMessage.ToAddresses = toAddresses;
                 emailMessage.FromAddresses = fromAddresses;
 
                 emailMessage.Subject = "TestJob Notification";
-                emailMessage.Content = "<h1>TEST JOB<h1><p>This is a Test Job<p>";
+                emailMessage.Content = "<h1>TEST JOB<h1><p>This is a Test Job<p><br>" + testResponse;
 
                 // - send composed message - via Email Service
                 _email.Send(emailMessage);
@@ -169,5 +197,25 @@ public class TestJob : IJob
 
         BsonDocument[] SeedData = { seventies, eighties, nineties };
         return SeedData;
+    }
+
+    /// <summary>
+    /// Submit a asynchronus http GET request to a REST API URL
+    /// </summary>
+    /// <param name="url">The URL of the http endpoint</param>
+    /// <returns>The response content returned from the GET request</returns>
+    async static Task<string> GetRequestAsync(string url)
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            using (HttpResponseMessage response = await client.GetAsync(url))
+            {
+                using (HttpContent content = response.Content)
+                {
+                    string webcontent = await content.ReadAsStringAsync();
+                    return webcontent;
+                }
+            }
+        }
     }
 }

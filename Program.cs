@@ -1,18 +1,10 @@
 ﻿using System;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Runtime.Loader;
-using System.Linq;
-using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Core;
 using FluentScheduler;
-using Microsoft.Extensions.Configuration;
 
 namespace bl_status_svc
 {
@@ -34,9 +26,6 @@ namespace bl_status_svc
             Console.CancelKeyPress += new ConsoleCancelEventHandler(CancelHandler);
             JobManager.JobException += info => logger.Fatal("bl-status-svc: An error just happened with a scheduled job: " + info.Exception);
 
-            // Run Work/Test Code
-            var sleep = 3000;
-
             // Inject Logger Into Scheduler Job Classes
             var servicesProvider = BuildDi();
             var testJob = servicesProvider.GetRequiredService<TestJob>();
@@ -44,14 +33,13 @@ namespace bl_status_svc
             // Initialize Job Manager
             var jobRegistry = new Registry();
             // -- schedule Test Job
-            jobRegistry.Schedule(testJob).ToRunNow().AndEvery(15).Seconds();
+            jobRegistry.Schedule(testJob).ToRunNow().AndEvery(60).Seconds();
             // -- load all scheduled Jobs
             JobManager.Initialize(jobRegistry);
 
-            if (args.Length > 0) { int.TryParse(args[0], out sleep); }
             while (true)
             {
-                
+                // Run Until Canceled/Stopped
             }
         }
 

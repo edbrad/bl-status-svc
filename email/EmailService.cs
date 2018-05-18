@@ -19,13 +19,11 @@ public class EmailService : IEmailService
 
         message.Subject = emailMessage.Subject;
 
-        //We will say we are sending HTML. But there are options for plaintext etc. 
         message.Body = new TextPart("html")
         {
             Text = emailMessage.Content
         };
 
-        //Be careful that the SmtpClient class is the one from Mailkit not the framework!
         using (var emailClient = new SmtpClient())
         {
             // Connect to the Server
