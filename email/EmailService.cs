@@ -11,7 +11,7 @@ public class EmailService : IEmailService
 	{
 		
 	}
-    public void Send(EmailMessage emailMessage)
+    public void Send(EmailMessage emailMessage, String attachmentFilePath = "")
     {
         var message = new MimeMessage();
         message.To.AddRange(emailMessage.ToAddresses.Select(x => new MailboxAddress(x.Name, x.Address)));
@@ -19,11 +19,16 @@ public class EmailService : IEmailService
 
         message.Subject = emailMessage.Subject;
 
-        message.Body = new TextPart("html")
+        var builder = new BodyBuilder();
+        builder.HtmlBody = emailMessage.Content;
+        if(!String.IsNullOrEmpty(attachmentFilePath))
         {
-            Text = emailMessage.Content
-        };
+            builder.Attachments.Add(attachmentFilePath);
+        }
+        
 
+        message.Body = builder.ToMessageBody();
+        
         using (var emailClient = new SmtpClient())
         {
             // Connect to the Server

@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,6 +14,11 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
+using iText.IO.Font;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
 
 public class TestJob : IJob
 {
@@ -19,41 +26,36 @@ public class TestJob : IJob
     private readonly ILogger<TestJob> _logger;
     private bool _shuttingDown;
     EmailService _email = new EmailService();
-
-    List<String> jsondata = new List<String>();
-    string url = "";
-    
-    Boolean IsApiAvailable = false;
-    string testResponse = "";
+    List<String> _jsondata = new List<String>();
+    string _url = "";
+    private string _filePath;
+    string _apiTestResponse = "";
 
     public TestJob(ILogger<TestJob> logger)
     {
         // Initialize
         _logger = logger;
+        _filePath = "";
     }
 
     public async void Execute()
     {
         try
         {
-                // Make API Call
-                // - verify that API endpoint is available
-                IsApiAvailable = false;
-                jsondata.Clear();
-                url = "https://jsonplaceholder.typicode.com/users";
-
-                _logger.LogDebug("Testing Backend API Connection to: " + url + "...");
-                try
-                {
-                    testResponse = await GetRequestAsync(url);
-                    _logger.LogDebug("API Response: " + testResponse);
-                    IsApiAvailable = true;
-                }
-                catch (HttpRequestException ex)
-                {
-                    IsApiAvailable = false;
-                    _logger.LogDebug("ERROR - Backend API Connection failure - HTTP Request Error:\n " + ex);
-                }
+            // Make API Call
+            // - verify that API endpoint is available
+            _jsondata.Clear();
+            _url = "https://jsonplaceholder.typicode.com/users";
+            _logger.LogDebug("Testing Backend API Connection to: " + _url + "...");
+            try
+            {
+                _apiTestResponse = await GetRequestAsyncTest(_url);
+                _logger.LogDebug("API Response: " + _apiTestResponse);
+            }
+            catch (HttpRequestException ex)
+            {
+                _logger.LogDebug("ERROR - Backend API Connection failure - HTTP Request Error:\n " + ex);
+            }
 
             lock (_lock)
             {
@@ -63,16 +65,30 @@ public class TestJob : IJob
                 // Load Seed Data into Database
                 _logger.LogDebug("TestJob: Creating & Loading Seed Data into MongoDB...");
                 BsonDocument[] seedData = CreateSeedData();
-                AsyncCrud(seedData).Wait();
+                AsyncMongoCrudTest(seedData).Wait();
                 _logger.LogDebug("TestJob: Data Loaded!");
+
+                // Run BASH Command (backup MongoDB Database)
+                _logger.LogDebug("TestJob: Run Shell Command: Backup MongoDB data...");
+                Console.WriteLine(Shell("mongodump --host localhost --port 27017 --out data/db-backup/testbackup"));
+                _logger.LogDebug("TestJob: Shell Command: Complete!");
+
+                // Generate PDF
+                _logger.LogDebug("TestJob: Generating PDF...");
+                GeneratePDFTest();
+                _logger.LogDebug("TestJob: PDF Generated!");
 
                 // Send Email Notification
                 _logger.LogDebug("TestJob: Creating & Sending Email...");
 
-                // - create new message instance
+                /*
+                * create new message instance
+                */
                 EmailMessage emailMessage = new EmailMessage();
 
-                // - compose message
+                /*
+                * compose message
+                */
                 List<EmailAddress> toAddresses = new List<EmailAddress>();
                 toAddresses.Add(new EmailAddress()
                 {
@@ -91,10 +107,14 @@ public class TestJob : IJob
                 emailMessage.FromAddresses = fromAddresses;
 
                 emailMessage.Subject = "TestJob Notification";
-                emailMessage.Content = "<h1>TEST JOB<h1><p>This is a Test Job<p><br>" + testResponse;
+                emailMessage.Content = "<h1>TEST JOB<h1><p>This is a Test Job</p><br>" + _apiTestResponse;
 
-                // - send composed message - via Email Service
-                _email.Send(emailMessage);
+                string attachmentPath = _filePath;
+
+                /*
+                * send composed message - via Email Service
+                */
+                _email.Send(emailMessage, attachmentPath);
                 _logger.LogDebug("TestJob: Email Sent!");
             }
         }
@@ -106,8 +126,10 @@ public class TestJob : IJob
 
     public void Stop(bool immediate)
     {
-        // Locking here will wait for the lock in Execute to be 
-        // released until this code can continue.
+        /* 
+        * Locking here will wait for the lock in Execute to be 
+        * released until this code can continue.
+        */
         lock (_lock)
         {
             _shuttingDown = true;
@@ -120,7 +142,7 @@ public class TestJob : IJob
     /// </summary>
     /// <param name="seedData"></param>
     /// <returns></returns>
-    async static Task AsyncCrud(BsonDocument[] seedData)
+    async static Task AsyncMongoCrudTest(BsonDocument[] seedData)
     {
         // Create seed data
         BsonDocument[] songData = seedData;
@@ -204,7 +226,7 @@ public class TestJob : IJob
     /// </summary>
     /// <param name="url">The URL of the http endpoint</param>
     /// <returns>The response content returned from the GET request</returns>
-    async static Task<string> GetRequestAsync(string url)
+    async static Task<string> GetRequestAsyncTest(string url)
     {
         using (HttpClient client = new HttpClient())
         {
@@ -217,5 +239,80 @@ public class TestJob : IJob
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Generate a PDF File.
+    /// </summary>
+    void GeneratePDFTest()
+    {
+        // Write PDF File
+        _filePath = Path.Combine("pdf", "test-job.pdf");
+        _logger.LogDebug("TestJob: PDF File Path: " + _filePath);
+
+        if (File.Exists(_filePath))
+        {
+            _logger.LogDebug("TestJob: Deleting Existing File: " + _filePath);
+            File.Delete(_filePath);
+        }
+
+        // Initialize PDF writer
+        PdfWriter writer = new PdfWriter(_filePath);
+        // Initialize PDF document
+        PdfDocument pdf = new PdfDocument(writer);
+        // Initialize document
+        Document document = new Document(pdf);
+        // Create a PdfFont
+        PdfFont font = PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.TIMES_ROMAN);
+        // Add a Paragraph
+        document.Add(new Paragraph("iText is:").SetFont(font));
+        // Create a List
+        List list = new List().SetSymbolIndent(12).SetListSymbol("\u2022").SetFont(font);
+        // Add ListItem objects
+        list.Add(new ListItem("Never gonna give you up"));
+        list.Add(new ListItem("Never gonna let you down"));
+        list.Add(new ListItem("Never gonna run around and desert you"));
+        list.Add(new ListItem("Never gonna make you cry"));
+        list.Add(new ListItem("Never gonna say goodbye"));
+        list.Add(new ListItem("Never gonna tell a lie and hurt you"));
+        // Add the list
+        document.Add(list);
+        //Close document
+        document.Close();
+
+    }
+
+    /// <summary>
+    /// Copy a File.
+    /// </summary>
+    static void FileCopyTest()
+    {
+
+    }
+
+    /// <summary>
+    /// Execute Shell Command (Process)
+    /// </summary>
+    /// <param name="cmd"></param>
+    /// <returns></returns>
+    static string Shell(string cmd)
+    {
+        var escapedArgs = cmd.Replace("\"", "\\\"");
+
+        var process = new Process()
+        {
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = "/bin/bash",
+                Arguments = $"-c \"{escapedArgs}\"",
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+            }
+        };
+        process.Start();
+        string result = process.StandardOutput.ReadToEnd();
+        process.WaitForExit();
+        return result;
     }
 }
