@@ -14,7 +14,7 @@ namespace bl_status_svc
         /// BL-STATUS-SVC: Box Loading Status Superintendent Service
         /// Runs scheduled system maintenance/management/reporting Jobs in the background 
         /// </summary>
-        /// <param name="args"></param>
+        /// <param name="args">Command Line Arguments</param>
         static void Main(string[] args)
         {
             // Initialize Logger
@@ -27,19 +27,23 @@ namespace bl_status_svc
             JobManager.JobException += info => logger.Fatal("bl-status-svc: An error just happened with a scheduled job: " + info.Exception);
 
             // Inject Logger Into Scheduler Job Classes
-            var servicesProvider = BuildDi();
-            var testJob = servicesProvider.GetRequiredService<TestJob>();
+            var servicesProvider = BuildDi(); /* initialize provider if injectable Services */
+            //var testJob = servicesProvider.GetRequiredService<TestJob>();
+            var backupJob = servicesProvider.GetRequiredService<BackupJob>();
 
             // Initialize Job Manager
             var jobRegistry = new Registry();
-            // -- schedule Test Job
-            jobRegistry.Schedule(testJob).ToRunNow().AndEvery(60).Seconds();
-            // -- load all scheduled Jobs
+
+            /* **JOBS ARE SCHEDULED HERE** */
+            //jobRegistry.Schedule(testJob).ToRunNow().AndEvery(60).Seconds();  /* Test Job */
+            jobRegistry.Schedule(backupJob).ToRunNow().AndEvery(60).Seconds();  /* Backup Job */
+            
+            /* load all scheduled Jobs */
             JobManager.Initialize(jobRegistry);
 
             while (true)
             {
-                // Run Until Canceled/Stopped
+                // RUN UNTIL SHUTDOWN OR CANCELED
             }
         }
 
@@ -50,10 +54,14 @@ namespace bl_status_svc
         private static void SigTermEventHandler(AssemblyLoadContext obj)
         {
             Console.WriteLine("bl-status-svc: Unloading...");
+            
             // Stop the Job Scheduler
             JobManager.Stop();
-            // NLog: flush and stop internal timers/threads before 
-            // application-exit (Avoid segmentation fault on Linux)
+
+            /*
+            * NLog: flush and stop internal timers/threads before 
+            * application-exit (Avoid segmentation fault on Linux)
+            */
             NLog.LogManager.Shutdown();
         }
 
@@ -65,10 +73,14 @@ namespace bl_status_svc
         private static void CancelHandler(object sender, ConsoleCancelEventArgs e)
         {
             Console.WriteLine("bl-status-svc: Canceled. Exiting...");
+
             // Stop the Job Scheduler
             JobManager.Stop();
-            // Ensure to flush and stop internal timers/threads before 
-            // application-exit (Avoid segmentation fault on Linux)
+
+            /*
+            * NLog: flush and stop internal timers/threads before 
+            * application-exit (Avoid segmentation fault on Linux)
+            */
             NLog.LogManager.Shutdown();
         }
 
@@ -81,8 +93,9 @@ namespace bl_status_svc
         {
             var services = new ServiceCollection();
 
-            // Add the custom class(es) that will reference Singleton(s)
-            services.AddTransient<TestJob>();
+            // Add the custom class(es) that will reference Singleton(s) - Jobs
+            //services.AddTransient<TestJob>();
+            services.AddTransient<BackupJob>();
 
             // Build Injectable Logger Service (using NLog)
             services.AddSingleton<ILoggerFactory, LoggerFactory>();

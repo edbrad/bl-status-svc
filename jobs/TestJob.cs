@@ -20,8 +20,12 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 
+/// <summary>
+/// TEST JOB: Scheduler Job to test functionality
+/// </summary>
 public class TestJob : IJob
 {
+    // Define Local Variables
     private readonly object _lock = new object();
     private readonly ILogger<TestJob> _logger;
     private bool _shuttingDown;
@@ -31,13 +35,21 @@ public class TestJob : IJob
     private string _filePath;
     string _apiTestResponse = "";
 
+    /// <summary>
+    /// Class Constructor
+    /// </summary>
+    /// <param name="logger"></param>
     public TestJob(ILogger<TestJob> logger)
     {
         // Initialize
-        _logger = logger;
-        _filePath = "";
+        _logger = logger; /* get injected Logger singleton */
+        _filePath = "";   /* clear PDF file path/name */
     }
 
+    /// <summary>
+    /// Execute Job Task(s)
+    /// </summary>
+    /// <returns></returns>
     public async void Execute()
     {
         try
@@ -124,6 +136,10 @@ public class TestJob : IJob
         }
     }
 
+    /// <summary>
+    /// Post Stop/Shutdown Code
+    /// </summary>
+    /// <param name="immediate"></param>
     public void Stop(bool immediate)
     {
         /* 
@@ -138,7 +154,7 @@ public class TestJob : IJob
     }
 
     /// <summary>
-    /// Work Code (MongoDB CRUD Testing)
+    /// Test Code (MongoDB CRUD Testing) - Load/Read/Filter Dummy data w/ Local Database
     /// </summary>
     /// <param name="seedData"></param>
     /// <returns></returns>
@@ -187,11 +203,11 @@ public class TestJob : IJob
         );
 
         // Since this is an example, we'll clean up after ourselves.
-        await db.DropCollectionAsync("songs");
+        //await db.DropCollectionAsync("songs");
     }
 
     /// <summary>
-    /// Work Code (data)
+    /// Test Code (data)
     /// </summary>
     /// <returns></returns>
     static BsonDocument[] CreateSeedData()
@@ -242,59 +258,70 @@ public class TestJob : IJob
     }
 
     /// <summary>
-    /// Generate a PDF File.
+    /// Generate a Sample PDF File.
     /// </summary>
     void GeneratePDFTest()
     {
-        // Write PDF File
+        // Write Sample PDF File
+        /* set output file path */
         _filePath = Path.Combine("pdf", "test-job.pdf");
         _logger.LogDebug("TestJob: PDF File Path: " + _filePath);
 
+        /* delete the existing file, if it already exists */
         if (File.Exists(_filePath))
         {
             _logger.LogDebug("TestJob: Deleting Existing File: " + _filePath);
             File.Delete(_filePath);
         }
 
-        // Initialize PDF writer
-        PdfWriter writer = new PdfWriter(_filePath);
-        // Initialize PDF document
-        PdfDocument pdf = new PdfDocument(writer);
-        // Initialize document
-        Document document = new Document(pdf);
-        // Create a PdfFont
-        PdfFont font = PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.TIMES_ROMAN);
-        // Add a Paragraph
-        document.Add(new Paragraph("iText is:").SetFont(font));
-        // Create a List
-        List list = new List().SetSymbolIndent(12).SetListSymbol("\u2022").SetFont(font);
-        // Add ListItem objects
-        list.Add(new ListItem("Never gonna give you up"));
-        list.Add(new ListItem("Never gonna let you down"));
-        list.Add(new ListItem("Never gonna run around and desert you"));
-        list.Add(new ListItem("Never gonna make you cry"));
-        list.Add(new ListItem("Never gonna say goodbye"));
-        list.Add(new ListItem("Never gonna tell a lie and hurt you"));
-        // Add the list
-        document.Add(list);
-        //Close document
-        document.Close();
+        /* define a PDF file writter */
+        var writer = new PdfWriter(_filePath);
 
+        /* define a new PDF document and associate it w/ PDF writter */
+        var pdf = new PdfDocument(writer);
+        var document = new Document(pdf);
+
+        /* create a PdfFont */
+        var font = PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA);
+
+        /* add a paragraph */
+        document.Add(new Paragraph("iText is:").SetFont(font));
+        
+        /* create a list */
+        List list = new List()
+            .SetSymbolIndent(12)
+            .SetListSymbol("\u2022") /* set the list layout */
+            .SetFont(font);
+
+        /* add List Item objects */
+        list.Add(new ListItem("Never gonna give you up"))
+            .Add(new ListItem("Never gonna let you down"))
+            .Add(new ListItem("Never gonna run around and desert you"))
+            .Add(new ListItem("Never gonna make you cry"))
+            .Add(new ListItem("Never gonna say goodbye!"))
+            .Add(new ListItem("Never gonna tell a lie and hurt you!"));
+
+        /* add the list to the PDF document */
+        document.Add(list);
+
+        /* close/complete the PDF file */
+        document.Close();
     }
 
     /// <summary>
     /// Copy a File.
     /// </summary>
-    static void FileCopyTest()
+    void FileCopyTest(string fromFilePath, string toFilePath)
     {
-
+        /* copy file */
+        _logger.LogDebug("Copying file: " + fromFilePath + " to: " + toFilePath);
     }
 
     /// <summary>
     /// Execute Shell Command (Process)
     /// </summary>
-    /// <param name="cmd"></param>
-    /// <returns></returns>
+    /// <param name="cmd">Shell Command to Execute a local Shell Comand</param>
+    /// <returns>A string containing the STDOUT result</returns>
     static string Shell(string cmd)
     {
         var escapedArgs = cmd.Replace("\"", "\\\"");

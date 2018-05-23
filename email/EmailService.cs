@@ -20,7 +20,7 @@ public class EmailService : IEmailService
         message.Subject = emailMessage.Subject;
 
         var builder = new BodyBuilder();
-        builder.HtmlBody = emailMessage.Content;
+        builder.TextBody = emailMessage.Content;
         if(!String.IsNullOrEmpty(attachmentFilePath))
         {
             builder.Attachments.Add(attachmentFilePath);
