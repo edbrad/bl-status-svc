@@ -1,40 +1,26 @@
 using System;
 using System.IO;
-using System.Text;
 using System.Diagnostics;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using FluentScheduler;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Core;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using Newtonsoft.Json.Linq;
-using iText.IO.Font;
-using iText.Kernel.Font;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
 
 /// <summary>
-/// TEST JOB: Scheduler Job to test functionality
+/// BACKUP JOB: Scheduler Job to backup the 
+/// bl-status system database (MongoDB)
 /// </summary>
 public class BackupJob : IJob
 {
     // Define Local Variables
-    private readonly object _lock = new object();
-    private readonly ILogger<BackupJob> _logger;
-    private bool _shuttingDown;
-    private string _bkupOutput;
-    EmailService _email = new EmailService();
+    private readonly object _lock = new object(); /* Task/Job Locker */
+    private readonly ILogger<BackupJob> _logger; /* system logger (singleton injection) */
+    private bool _shuttingDown; /* scheduler showtdown flag */
+    private string _bkupOutput; /* captures mongodump results */
+    EmailService _email = new EmailService(); /* system Emailer instance */
 
     /// <summary>
-    /// Class Constructor
+    /// Constructor
     /// </summary>
     /// <param name="logger"></param>
     public BackupJob(ILogger<BackupJob> logger)
@@ -52,13 +38,12 @@ public class BackupJob : IJob
     {
         try
         {
-
             lock (_lock)
             {
                 if (_shuttingDown)
                     return;
 
-                // Run BASH Command (backup MongoDB Database)
+                // Run Shell Command (backup MongoDB Database)
                 _logger.LogDebug("BackupJob: Run Shell Command: Backup MongoDB data...");
                 _bkupOutput = Shell("sh data/db-backup/mongobackup.sh &> data/db-backup/bl-status-DBbackup.txt");
                 _logger.LogDebug("BackupJob: Shell Command: Complete!");
@@ -108,7 +93,8 @@ public class BackupJob : IJob
                 }
                 else
                 {
-                    _bkupOutput = "--ERROR--";
+                    _bkupOutput = "--ERROR-- Missing Log File";
+                    _logger.LogError("bl-status-svc: Missing mongodump Log File (data/db-backup/bl-status-DBbackup.txt)");
                 }
                 emailMessage.Content = "bl-status-svc - BACKUP JOB RESULTS:\n\n" + _bkupOutput;
 
@@ -144,7 +130,6 @@ public class BackupJob : IJob
         {
             _shuttingDown = true;
         }
-
     }
 
     /// <summary>
