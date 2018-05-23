@@ -5,12 +5,23 @@ using MailKit;
 using MailKit.Net.Smtp;
 using MimeKit;
 
+/// <summary>
+/// A Service to Send Email(s) via SMTP
+/// </summary>
 public class EmailService : IEmailService
 {
+    /// <summary>
+    /// Constructor
+    /// </summary>
     public EmailService()
 	{
 		
 	}
+    /// <summary>
+    /// Construct and Send an Email Message via a SMTP Server
+    /// </summary>
+    /// <param name="emailMessage"></param>
+    /// <param name="attachmentFilePath"></param>
     public void Send(EmailMessage emailMessage, String attachmentFilePath = "")
     {
         var message = new MimeMessage();

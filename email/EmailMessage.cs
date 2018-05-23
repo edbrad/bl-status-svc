@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Define an Email Message
+/// </summary>
 public class EmailMessage
 {
 	public EmailMessage()
