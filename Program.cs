@@ -43,7 +43,7 @@ namespace bl_status_svc
 
             while (true)
             {
-                // RUN UNTIL SHUTDOWN OR CANCELED
+                // RUN UNTIL SHUT DOWN OR CANCELED
             }
         }
 
