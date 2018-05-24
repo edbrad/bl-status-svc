@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.Loader;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 using NLog.Extensions.Logging;
 using FluentScheduler;
 
@@ -10,6 +11,8 @@ namespace bl_status_svc
 {
     class Program
     {
+        public static IConfiguration Configuration { get; set; } /* Application Configuration Object */
+
         /// <summary>
         /// BL-STATUS-SVC: Box Loading Status Superintendent Service
         /// Runs scheduled system maintenance/management/reporting Jobs in the background 
@@ -19,7 +22,19 @@ namespace bl_status_svc
         {
             // Initialize Logger
             var logger = NLog.LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
-            logger.Debug("Logging started!");
+            logger.Debug("Service Logging started!");
+
+            // Get App Configuration (from external config file)
+            var appConfigBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            Configuration = appConfigBuilder.Build();
+
+            /* display app info */
+            logger.Debug($"Application Name: {Configuration["AppInfo:AppName"]}");
+            logger.Debug($"Description: {Configuration["AppInfo:AppDescription"]}");
+            logger.Debug($"Version: {Configuration["AppInfo:AppVersion"]}");
 
             // Add Event Handlers
             AssemblyLoadContext.Default.Unloading += SigTermEventHandler;
@@ -37,10 +52,11 @@ namespace bl_status_svc
             /* **JOBS ARE SCHEDULED HERE** */
             //jobRegistry.Schedule(testJob).ToRunNow().AndEvery(60).Seconds();  /* Test Job */
             jobRegistry.Schedule(backupJob).ToRunNow().AndEvery(60).Seconds();  /* Backup Job */
-            
+
             /* load all scheduled Jobs */
             JobManager.Initialize(jobRegistry);
 
+            
             while (true)
             {
                 // RUN UNTIL SHUT DOWN OR CANCELED
@@ -54,7 +70,7 @@ namespace bl_status_svc
         private static void SigTermEventHandler(AssemblyLoadContext obj)
         {
             Console.WriteLine("bl-status-svc: Unloading...");
-            
+
             // Stop the Job Scheduler
             JobManager.Stop();
 
@@ -101,7 +117,7 @@ namespace bl_status_svc
             services.AddSingleton<ILoggerFactory, LoggerFactory>();
             services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
             services.AddLogging((builder) => builder.SetMinimumLevel(LogLevel.Trace));
-            
+
             var serviceProvider = services.BuildServiceProvider();
 
             var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();

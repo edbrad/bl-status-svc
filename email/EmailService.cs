@@ -1,6 +1,8 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Configuration;
 using MailKit;
 using MailKit.Net.Smtp;
 using MimeKit;
@@ -10,13 +12,22 @@ using MimeKit;
 /// </summary>
 public class EmailService : IEmailService
 {
+    // Declare Application Configuration Object
+    public static IConfiguration Configuration { get; set; }
+
     /// <summary>
     /// Constructor
     /// </summary>
     public EmailService()
-	{
-		
-	}
+    {
+        // Get App Configuration (from external config file)
+        var appConfigBuilder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json");
+
+        Configuration = appConfigBuilder.Build();
+    }
+
     /// <summary>
     /// Construct and Send an Email Message via a SMTP Server
     /// </summary>
@@ -32,23 +43,22 @@ public class EmailService : IEmailService
 
         var builder = new BodyBuilder();
         builder.TextBody = emailMessage.Content;
-        if(!String.IsNullOrEmpty(attachmentFilePath))
+        if (!String.IsNullOrEmpty(attachmentFilePath))
         {
             builder.Attachments.Add(attachmentFilePath);
         }
-        
 
         message.Body = builder.ToMessageBody();
-        
+
         using (var emailClient = new SmtpClient())
         {
             // Connect to the Server
-            emailClient.Connect("smtp.gmail.com", 587);
+            emailClient.Connect(Configuration["EmailConfiguration:SmtpServer"], Int32.Parse(Configuration["EmailConfiguration:SmtpPort"]));
 
             // Remove any OAuth functionality as we won't be using it. 
             emailClient.AuthenticationMechanisms.Remove("XOAUTH2");
 
-            emailClient.Authenticate("edbrad45@gmail.com", "eddie123a");
+            emailClient.Authenticate(Configuration["EmailConfiguration:SMTPUsername"], Configuration["EmailConfiguration:SMTPPassword"]);
 
             emailClient.Send(message);
 

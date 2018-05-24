@@ -2,9 +2,12 @@ using System;
 using System.IO;
 using System.Diagnostics;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 using FluentScheduler;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 /// <summary>
 /// BACKUP JOB: Scheduler Job to backup the 
@@ -17,6 +20,8 @@ public class BackupJob : IJob
     private readonly ILogger<BackupJob> _logger; /* system logger (singleton injection) */
     private bool _shuttingDown; /* scheduler showtdown flag */
     private string _bkupOutput; /* captures mongodump results */
+    
+    public static IConfiguration Configuration { get; set; } /* Application Configuration Object */
     EmailService _email = new EmailService(); /* system Emailer instance */
 
     /// <summary>
@@ -28,6 +33,13 @@ public class BackupJob : IJob
         // Initialize
         _logger = logger; /* get injected Logger singleton */
         _bkupOutput = "";
+        
+        // Get App Configuration (from external config file)
+        var appConfigBuilder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json");
+        
+        Configuration = appConfigBuilder.Build();
     }
 
     /// <summary>
@@ -62,15 +74,15 @@ public class BackupJob : IJob
                 List<EmailAddress> toAddresses = new List<EmailAddress>();
                 toAddresses.Add(new EmailAddress()
                 {
-                    Name = "Edward Bradley",
-                    Address = "edb@emsmail.com"
+                    Name = Configuration["EmailConfiguration:EmailTo:Name"],
+                    Address = Configuration["EmailConfiguration:EmailTo:Address"]
                 });
 
                 List<EmailAddress> fromAddresses = new List<EmailAddress>();
                 fromAddresses.Add(new EmailAddress()
                 {
-                    Name = "Box Loading Status - Superintendent Service",
-                    Address = "bl-status-svc@emsmail.com"
+                    Name = Configuration["EmailConfiguration:EmailFrom:Name"],
+                    Address = Configuration["EmailConfiguration:EmailFrom:Address"]
                 });
 
                 emailMessage.ToAddresses = toAddresses;

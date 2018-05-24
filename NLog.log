@@ -1305,3 +1305,471 @@
 2018-05-23 16:45:44.1719 Info Logger closing down...
 2018-05-23 16:45:44.1829 Info Closing old configuration.
 2018-05-23 16:45:44.2286 Info Logger has been closed down.
+2018-05-24 11:12:54.3014 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:12:54.3152 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:12:54.3271 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:12:54.3271 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:12:54.3329 Info Message Template Auto Format enabled
+2018-05-24 11:12:54.4221 Info Adding target File Target[target1]
+2018-05-24 11:12:54.4257 Info Adding target Console Target[target2]
+2018-05-24 11:12:54.4329 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:12:54.4559 Info Found 33 configuration items
+2018-05-24 11:12:59.7862 Info Logger closing down...
+2018-05-24 11:12:59.7906 Info Closing old configuration.
+2018-05-24 11:12:59.8338 Info Logger has been closed down.
+2018-05-24 11:14:37.5565 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:14:37.5689 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:14:37.5836 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:14:37.5836 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:14:37.5879 Info Message Template Auto Format enabled
+2018-05-24 11:14:37.6527 Info Adding target File Target[target1]
+2018-05-24 11:14:37.6549 Info Adding target Console Target[target2]
+2018-05-24 11:14:37.6610 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:14:37.6780 Info Found 33 configuration items
+2018-05-24 11:14:44.7419 Info Logger closing down...
+2018-05-24 11:14:44.7469 Info Closing old configuration.
+2018-05-24 11:14:44.7861 Info Logger has been closed down.
+2018-05-24 11:17:39.2139 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:17:39.2246 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:17:39.2425 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:17:39.2425 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:17:39.2498 Info Message Template Auto Format enabled
+2018-05-24 11:17:39.3144 Info Adding target File Target[target1]
+2018-05-24 11:17:39.3176 Info Adding target Console Target[target2]
+2018-05-24 11:17:39.3292 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:17:39.3496 Info Found 33 configuration items
+2018-05-24 11:17:43.1471 Info Logger closing down...
+2018-05-24 11:17:43.1471 Info Closing old configuration.
+2018-05-24 11:17:43.2008 Info Logger has been closed down.
+2018-05-24 11:19:21.3346 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:19:21.3465 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:19:21.3607 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:19:21.3607 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:19:21.3607 Info Message Template Auto Format enabled
+2018-05-24 11:19:21.4449 Info Adding target File Target[target1]
+2018-05-24 11:19:21.4469 Info Adding target Console Target[target2]
+2018-05-24 11:19:21.4469 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:19:21.4707 Info Found 33 configuration items
+2018-05-24 11:19:24.8887 Info Logger closing down...
+2018-05-24 11:19:24.9005 Info Closing old configuration.
+2018-05-24 11:19:24.9968 Info Logger has been closed down.
+2018-05-24 11:21:45.2330 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:21:45.2426 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:21:45.2531 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:21:45.2531 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:21:45.2619 Info Message Template Auto Format enabled
+2018-05-24 11:21:45.3405 Info Adding target File Target[target1]
+2018-05-24 11:21:45.3405 Info Adding target Console Target[target2]
+2018-05-24 11:21:45.3508 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:21:45.3704 Info Found 33 configuration items
+2018-05-24 11:23:08.2213 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:23:08.2311 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:23:08.2442 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:23:08.2494 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:23:08.2522 Info Message Template Auto Format enabled
+2018-05-24 11:23:08.3260 Info Adding target File Target[target1]
+2018-05-24 11:23:08.3311 Info Adding target Console Target[target2]
+2018-05-24 11:23:08.3418 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:23:08.3685 Info Found 33 configuration items
+2018-05-24 11:26:56.9830 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:26:56.9935 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:26:57.0052 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:26:57.0086 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:26:57.0134 Info Message Template Auto Format enabled
+2018-05-24 11:26:57.0892 Info Adding target File Target[target1]
+2018-05-24 11:26:57.0923 Info Adding target Console Target[target2]
+2018-05-24 11:26:57.1005 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:26:57.1232 Info Found 33 configuration items
+2018-05-24 11:27:02.6160 Info Logger closing down...
+2018-05-24 11:27:02.6216 Info Closing old configuration.
+2018-05-24 11:27:02.6950 Info Logger has been closed down.
+2018-05-24 11:38:50.6077 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:38:50.6169 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:38:50.6283 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:38:50.6321 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:38:50.6366 Info Message Template Auto Format enabled
+2018-05-24 11:38:50.7043 Info Adding target File Target[target1]
+2018-05-24 11:38:50.7080 Info Adding target Console Target[target2]
+2018-05-24 11:38:50.7167 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:38:50.7343 Info Found 33 configuration items
+2018-05-24 11:38:56.0516 Info Logger closing down...
+2018-05-24 11:38:56.0641 Info Closing old configuration.
+2018-05-24 11:38:56.1219 Info Logger has been closed down.
+2018-05-24 11:44:07.4208 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:44:07.4324 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:44:07.4443 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:44:07.4443 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:44:07.4483 Info Message Template Auto Format enabled
+2018-05-24 11:44:07.5231 Info Adding target File Target[target1]
+2018-05-24 11:44:07.5264 Info Adding target Console Target[target2]
+2018-05-24 11:44:07.5326 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:44:07.5558 Info Found 33 configuration items
+2018-05-24 11:44:12.3924 Info Logger closing down...
+2018-05-24 11:44:12.4068 Info Closing old configuration.
+2018-05-24 11:44:12.4396 Info Logger has been closed down.
+2018-05-24 11:45:29.9564 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:45:29.9669 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:45:29.9842 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:45:29.9877 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:45:29.9919 Info Message Template Auto Format enabled
+2018-05-24 11:45:30.0761 Info Adding target File Target[target1]
+2018-05-24 11:45:30.0791 Info Adding target Console Target[target2]
+2018-05-24 11:45:30.0854 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:45:30.1041 Info Found 33 configuration items
+2018-05-24 11:45:34.0331 Info Logger closing down...
+2018-05-24 11:45:34.0354 Info Closing old configuration.
+2018-05-24 11:45:34.0774 Info Logger has been closed down.
+2018-05-24 11:46:59.4919 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:46:59.5020 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:46:59.5134 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:46:59.5165 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:46:59.5224 Info Message Template Auto Format enabled
+2018-05-24 11:46:59.5973 Info Adding target File Target[target1]
+2018-05-24 11:46:59.6008 Info Adding target Console Target[target2]
+2018-05-24 11:46:59.6069 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:46:59.6245 Info Found 33 configuration items
+2018-05-24 11:47:04.4739 Info Logger closing down...
+2018-05-24 11:47:04.4792 Info Closing old configuration.
+2018-05-24 11:47:04.5587 Info Logger has been closed down.
+2018-05-24 11:48:23.9565 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:48:23.9667 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 11:48:23.9770 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 11:48:23.9806 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 11:48:23.9842 Info Message Template Auto Format enabled
+2018-05-24 11:48:24.0621 Info Adding target File Target[target1]
+2018-05-24 11:48:24.0667 Info Adding target Console Target[target2]
+2018-05-24 11:48:24.0763 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 11:48:24.0952 Info Found 33 configuration items
+2018-05-24 11:48:28.0451 Info Logger closing down...
+2018-05-24 11:48:28.0493 Info Closing old configuration.
+2018-05-24 11:48:28.0865 Info Logger has been closed down.
+2018-05-24 13:19:53.3301 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 13:19:53.3443 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 13:19:53.3578 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 13:19:53.3602 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 13:19:53.3653 Info Message Template Auto Format enabled
+2018-05-24 13:19:53.4441 Info Adding target File Target[target1]
+2018-05-24 13:19:53.4469 Info Adding target Console Target[target2]
+2018-05-24 13:19:53.4542 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 13:19:53.4749 Info Found 33 configuration items
+2018-05-24 13:19:59.1997 Info Logger closing down...
+2018-05-24 13:19:59.2118 Info Closing old configuration.
+2018-05-24 13:19:59.2549 Info Logger has been closed down.
+2018-05-24 13:58:06.9365 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 13:58:06.9465 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 13:58:06.9578 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 13:58:06.9598 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 13:58:06.9643 Info Message Template Auto Format enabled
+2018-05-24 13:58:07.0579 Info Adding target File Target[target1]
+2018-05-24 13:58:07.0611 Info Adding target Console Target[target2]
+2018-05-24 13:58:07.0705 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 13:58:07.0920 Info Found 33 configuration items
+2018-05-24 13:58:15.0907 Info Logger closing down...
+2018-05-24 13:58:15.1105 Info Closing old configuration.
+2018-05-24 13:58:15.1869 Info Logger has been closed down.
+2018-05-24 14:10:29.9412 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:10:29.9506 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:10:29.9613 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:10:29.9629 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:10:29.9666 Info Message Template Auto Format enabled
+2018-05-24 14:10:30.0368 Info Adding target File Target[target1]
+2018-05-24 14:10:30.0400 Info Adding target Console Target[target2]
+2018-05-24 14:10:30.0463 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:10:30.0676 Info Found 33 configuration items
+2018-05-24 14:10:40.0283 Info Logger closing down...
+2018-05-24 14:10:40.0332 Info Closing old configuration.
+2018-05-24 14:10:40.0836 Info Logger has been closed down.
+2018-05-24 14:12:18.7099 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:12:18.7180 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:12:18.7280 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:12:18.7280 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:12:18.7325 Info Message Template Auto Format enabled
+2018-05-24 14:12:18.8092 Info Adding target File Target[target1]
+2018-05-24 14:12:18.8121 Info Adding target Console Target[target2]
+2018-05-24 14:12:18.8221 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:12:18.8454 Info Found 33 configuration items
+2018-05-24 14:12:23.0987 Info Logger closing down...
+2018-05-24 14:12:23.1144 Info Closing old configuration.
+2018-05-24 14:12:23.1410 Info Logger has been closed down.
+2018-05-24 14:13:14.6753 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:13:14.6852 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:13:14.6972 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:13:14.6972 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:13:14.7040 Info Message Template Auto Format enabled
+2018-05-24 14:13:14.7729 Info Adding target File Target[target1]
+2018-05-24 14:13:14.7776 Info Adding target Console Target[target2]
+2018-05-24 14:13:14.7864 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:13:14.8120 Info Found 33 configuration items
+2018-05-24 14:13:29.4986 Info Logger closing down...
+2018-05-24 14:13:29.4986 Info Closing old configuration.
+2018-05-24 14:13:29.5812 Info Logger has been closed down.
+2018-05-24 14:23:24.3036 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:23:24.3113 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:23:24.3210 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:23:24.3223 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:23:24.3223 Info Message Template Auto Format enabled
+2018-05-24 14:23:24.3985 Info Adding target File Target[target1]
+2018-05-24 14:23:24.3985 Info Adding target Console Target[target2]
+2018-05-24 14:23:24.4095 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:23:24.4275 Info Found 33 configuration items
+2018-05-24 14:24:27.6152 Info Logger closing down...
+2018-05-24 14:24:27.6152 Info Closing old configuration.
+2018-05-24 14:24:27.6589 Info Logger has been closed down.
+2018-05-24 14:27:55.3007 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:27:55.3091 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:27:55.3194 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:27:55.3194 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:27:55.3248 Info Message Template Auto Format enabled
+2018-05-24 14:27:55.3960 Info Adding target File Target[target1]
+2018-05-24 14:27:55.3992 Info Adding target Console Target[target2]
+2018-05-24 14:27:55.4076 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:27:55.4287 Info Found 33 configuration items
+2018-05-24 14:28:02.8713 Info Logger closing down...
+2018-05-24 14:28:02.8872 Info Closing old configuration.
+2018-05-24 14:28:02.9547 Info Logger has been closed down.
+2018-05-24 14:34:40.3948 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:34:40.4050 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:34:40.4163 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:34:40.4203 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:34:40.4249 Info Message Template Auto Format enabled
+2018-05-24 14:34:40.5001 Info Adding target File Target[target1]
+2018-05-24 14:34:40.5036 Info Adding target Console Target[target2]
+2018-05-24 14:34:40.5100 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:34:40.5269 Info Found 33 configuration items
+2018-05-24 14:34:44.7034 Info Logger closing down...
+2018-05-24 14:34:44.7101 Info Closing old configuration.
+2018-05-24 14:34:44.7731 Info Logger has been closed down.
+2018-05-24 14:35:31.2833 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:35:31.2946 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:35:31.3047 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:35:31.3064 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:35:31.3064 Info Message Template Auto Format enabled
+2018-05-24 14:35:31.3780 Info Adding target File Target[target1]
+2018-05-24 14:35:31.3823 Info Adding target Console Target[target2]
+2018-05-24 14:35:31.3908 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:35:31.4094 Info Found 33 configuration items
+2018-05-24 14:35:36.4517 Info Logger closing down...
+2018-05-24 14:35:36.4626 Info Closing old configuration.
+2018-05-24 14:35:36.4915 Info Logger has been closed down.
+2018-05-24 14:36:33.1932 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:36:33.2051 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:36:33.2219 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:36:33.2266 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:36:33.2315 Info Message Template Auto Format enabled
+2018-05-24 14:36:33.3160 Info Adding target File Target[target1]
+2018-05-24 14:36:33.3197 Info Adding target Console Target[target2]
+2018-05-24 14:36:33.3272 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:36:33.3437 Info Found 33 configuration items
+2018-05-24 14:37:41.5170 Info Logger closing down...
+2018-05-24 14:37:41.5170 Info Closing old configuration.
+2018-05-24 14:37:41.5789 Info Logger has been closed down.
+2018-05-24 14:39:22.8555 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:39:22.8668 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:39:22.8773 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:39:22.8789 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:39:22.8827 Info Message Template Auto Format enabled
+2018-05-24 14:39:22.9533 Info Adding target File Target[target1]
+2018-05-24 14:39:22.9560 Info Adding target Console Target[target2]
+2018-05-24 14:39:22.9658 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:39:22.9896 Info Found 33 configuration items
+2018-05-24 14:39:28.7845 Info Logger closing down...
+2018-05-24 14:39:28.7986 Info Closing old configuration.
+2018-05-24 14:39:28.8441 Info Logger has been closed down.
+2018-05-24 14:40:19.5178 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:40:19.5261 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:40:19.5356 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:40:19.5356 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:40:19.5431 Info Message Template Auto Format enabled
+2018-05-24 14:40:19.6192 Info Adding target File Target[target1]
+2018-05-24 14:40:19.6192 Info Adding target Console Target[target2]
+2018-05-24 14:40:19.6292 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:40:19.6456 Info Found 33 configuration items
+2018-05-24 14:40:32.5449 Info Logger closing down...
+2018-05-24 14:40:32.5547 Info Closing old configuration.
+2018-05-24 14:40:32.6045 Info Logger has been closed down.
+2018-05-24 14:41:57.9151 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:41:57.9279 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:41:57.9476 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:41:57.9476 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:41:57.9525 Info Message Template Auto Format enabled
+2018-05-24 14:41:58.0278 Info Adding target File Target[target1]
+2018-05-24 14:41:58.0316 Info Adding target Console Target[target2]
+2018-05-24 14:41:58.0376 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:41:58.0537 Info Found 33 configuration items
+2018-05-24 14:42:04.2288 Info Logger closing down...
+2018-05-24 14:42:04.2355 Info Closing old configuration.
+2018-05-24 14:42:04.2920 Info Logger has been closed down.
+2018-05-24 14:42:53.1100 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:42:53.1201 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:42:53.1313 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:42:53.1313 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:42:53.1369 Info Message Template Auto Format enabled
+2018-05-24 14:42:53.2065 Info Adding target File Target[target1]
+2018-05-24 14:42:53.2107 Info Adding target Console Target[target2]
+2018-05-24 14:42:53.2184 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:42:53.2402 Info Found 33 configuration items
+2018-05-24 14:43:01.6315 Info Logger closing down...
+2018-05-24 14:43:01.6352 Info Closing old configuration.
+2018-05-24 14:43:01.6849 Info Logger has been closed down.
+2018-05-24 14:46:13.5179 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:46:13.5275 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:46:13.5370 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:46:13.5370 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:46:13.5430 Info Message Template Auto Format enabled
+2018-05-24 14:46:13.6192 Info Adding target File Target[target1]
+2018-05-24 14:46:13.6230 Info Adding target Console Target[target2]
+2018-05-24 14:46:13.6305 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:46:13.6475 Info Found 33 configuration items
+2018-05-24 14:46:17.8092 Info Logger closing down...
+2018-05-24 14:46:17.8161 Info Closing old configuration.
+2018-05-24 14:46:17.8835 Info Logger has been closed down.
+2018-05-24 14:52:54.1546 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:52:54.1672 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:52:54.1843 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:52:54.1865 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:52:54.1909 Info Message Template Auto Format enabled
+2018-05-24 14:52:54.2670 Info Adding target File Target[target1]
+2018-05-24 14:52:54.2702 Info Adding target Console Target[target2]
+2018-05-24 14:52:54.2774 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:52:54.2947 Info Found 33 configuration items
+2018-05-24 14:54:06.3969 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:54:06.4077 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 14:54:06.4164 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 14:54:06.4164 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 14:54:06.4202 Info Message Template Auto Format enabled
+2018-05-24 14:54:06.4930 Info Adding target File Target[target1]
+2018-05-24 14:54:06.4955 Info Adding target Console Target[target2]
+2018-05-24 14:54:06.5033 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 14:54:06.5283 Info Found 33 configuration items
+2018-05-24 15:01:45.7305 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:01:45.7422 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:01:45.7540 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 15:01:45.7557 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 15:01:45.7605 Info Message Template Auto Format enabled
+2018-05-24 15:01:45.8365 Info Adding target File Target[target1]
+2018-05-24 15:01:45.8403 Info Adding target Console Target[target2]
+2018-05-24 15:01:45.8472 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 15:01:45.8635 Info Found 33 configuration items
+2018-05-24 15:02:00.3909 Info Logger closing down...
+2018-05-24 15:02:00.4029 Info Closing old configuration.
+2018-05-24 15:02:00.4743 Info Logger has been closed down.
+2018-05-24 15:03:58.5266 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:03:58.5367 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:03:58.5472 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 15:03:58.5509 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 15:03:58.5551 Info Message Template Auto Format enabled
+2018-05-24 15:03:58.6384 Info Adding target File Target[target1]
+2018-05-24 15:03:58.6384 Info Adding target Console Target[target2]
+2018-05-24 15:03:58.6478 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 15:03:58.6676 Info Found 33 configuration items
+2018-05-24 15:04:07.3942 Info Logger closing down...
+2018-05-24 15:04:07.4101 Info Closing old configuration.
+2018-05-24 15:04:07.4879 Info Logger has been closed down.
+2018-05-24 15:05:35.2858 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:05:35.2942 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:05:35.3060 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 15:05:35.3060 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 15:05:35.3142 Info Message Template Auto Format enabled
+2018-05-24 15:05:35.4179 Info Adding target File Target[target1]
+2018-05-24 15:05:35.4219 Info Adding target Console Target[target2]
+2018-05-24 15:05:35.4320 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 15:05:35.4565 Info Found 33 configuration items
+2018-05-24 15:05:41.2190 Info Logger closing down...
+2018-05-24 15:05:41.2329 Info Closing old configuration.
+2018-05-24 15:05:41.2957 Info Logger has been closed down.
+2018-05-24 15:10:38.1734 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:10:38.1821 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:10:38.1934 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 15:10:38.1956 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 15:10:38.2003 Info Message Template Auto Format enabled
+2018-05-24 15:10:38.2902 Info Adding target File Target[target1]
+2018-05-24 15:10:38.2950 Info Adding target Console Target[target2]
+2018-05-24 15:10:38.3058 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 15:10:38.3362 Info Found 33 configuration items
+2018-05-24 15:10:43.9437 Info Logger closing down...
+2018-05-24 15:10:43.9551 Info Closing old configuration.
+2018-05-24 15:10:44.0187 Info Logger has been closed down.
+2018-05-24 15:35:43.1987 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:35:43.2082 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:35:43.2204 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 15:35:43.2230 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 15:35:43.2283 Info Message Template Auto Format enabled
+2018-05-24 15:35:43.3039 Info Adding target File Target[target1]
+2018-05-24 15:35:43.3066 Info Adding target Console Target[target2]
+2018-05-24 15:35:43.3143 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 15:35:43.3337 Info Found 33 configuration items
+2018-05-24 15:35:49.7296 Info Logger closing down...
+2018-05-24 15:35:49.7321 Info Closing old configuration.
+2018-05-24 15:35:49.7674 Info Logger has been closed down.
+2018-05-24 15:59:05.0819 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:59:05.0919 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 15:59:05.1033 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 15:59:05.1033 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 15:59:05.1081 Info Message Template Auto Format enabled
+2018-05-24 15:59:05.1805 Info Adding target File Target[target1]
+2018-05-24 15:59:05.1846 Info Adding target Console Target[target2]
+2018-05-24 15:59:05.1929 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 15:59:05.2168 Info Found 33 configuration items
+2018-05-24 15:59:14.4519 Info Logger closing down...
+2018-05-24 15:59:14.4682 Info Closing old configuration.
+2018-05-24 15:59:14.5009 Info Logger has been closed down.
+2018-05-24 16:00:23.3684 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:00:23.3768 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:00:23.3913 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 16:00:23.3946 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 16:00:23.3999 Info Message Template Auto Format enabled
+2018-05-24 16:00:23.4802 Info Adding target File Target[target1]
+2018-05-24 16:00:23.4846 Info Adding target Console Target[target2]
+2018-05-24 16:00:23.4933 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 16:00:23.5163 Info Found 33 configuration items
+2018-05-24 16:00:32.0344 Info Logger closing down...
+2018-05-24 16:00:32.0429 Info Closing old configuration.
+2018-05-24 16:00:32.0992 Info Logger has been closed down.
+2018-05-24 16:01:52.7700 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:01:52.7811 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:01:52.7932 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 16:01:52.7932 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 16:01:52.8008 Info Message Template Auto Format enabled
+2018-05-24 16:01:52.8738 Info Adding target File Target[target1]
+2018-05-24 16:01:52.8738 Info Adding target Console Target[target2]
+2018-05-24 16:01:52.8887 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 16:01:52.9087 Info Found 33 configuration items
+2018-05-24 16:02:07.7331 Info Logger closing down...
+2018-05-24 16:02:07.7352 Info Closing old configuration.
+2018-05-24 16:02:07.8004 Info Logger has been closed down.
+2018-05-24 16:02:59.5016 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:02:59.5134 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:02:59.5231 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 16:02:59.5231 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 16:02:59.5293 Info Message Template Auto Format enabled
+2018-05-24 16:02:59.6010 Info Adding target File Target[target1]
+2018-05-24 16:02:59.6031 Info Adding target Console Target[target2]
+2018-05-24 16:02:59.6108 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 16:02:59.6279 Info Found 33 configuration items
+2018-05-24 16:03:03.5614 Info Logger closing down...
+2018-05-24 16:03:03.5658 Info Closing old configuration.
+2018-05-24 16:03:03.6107 Info Logger has been closed down.
+2018-05-24 16:04:46.3419 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:04:46.3502 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:04:46.3630 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 16:04:46.3630 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 16:04:46.3694 Info Message Template Auto Format enabled
+2018-05-24 16:04:46.4548 Info Adding target File Target[target1]
+2018-05-24 16:04:46.4548 Info Adding target Console Target[target2]
+2018-05-24 16:04:46.4652 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 16:04:46.4871 Info Found 33 configuration items
+2018-05-24 16:04:52.1315 Info Logger closing down...
+2018-05-24 16:04:52.1377 Info Closing old configuration.
+2018-05-24 16:04:52.1828 Info Logger has been closed down.
+2018-05-24 16:11:12.1896 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:11:12.1996 Info Loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll
+2018-05-24 16:11:12.2095 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.0.2.652. Product version: 1.0.2.
+2018-05-24 16:11:12.2109 Info Auto loading assembly file: /home/edbrad/Documents/bl-status-svc/bin/NLog.Extensions.Logging.dll succeeded!
+2018-05-24 16:11:12.2109 Info Message Template Auto Format enabled
+2018-05-24 16:11:12.2823 Info Adding target File Target[target1]
+2018-05-24 16:11:12.2843 Info Adding target Console Target[target2]
+2018-05-24 16:11:12.2911 Info Configured from an XML element in /home/edbrad/Documents/bl-status-svc/bin/nlog.config...
+2018-05-24 16:11:12.3098 Info Found 33 configuration items
+2018-05-24 16:11:27.7951 Info Logger closing down...
+2018-05-24 16:11:27.8073 Info Closing old configuration.
+2018-05-24 16:11:27.8804 Info Logger has been closed down.
