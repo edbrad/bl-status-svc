@@ -5,10 +5,12 @@ The purpose of this Service/Daemon is to perform various Box Loading Status syst
 
 ![bl-status Architecture Overview Diagram](./resources/images/bl-status-svc_overview.png)
 
-The Service utilizes several Open-Source .NET libraries to define and schedule Jobs:
+The Service utilizes several widely-used and proven Open-Source .NET libraries to provide functionality:
 
 * **FluentScheduler** Job/Task Scheduler (https://github.com/fluentscheduler/FluentScheduler)
 * **iText** PDF Library (https://itextpdf.com/)
 * **MailKit** Email Library (http://www.mimekit.net/)
-* **Mongo C#** .NET Database Driver (https://mongodb.github.io/mongo-csharp-driver/)
+* **Mongo C# Driver** Database Driver (https://mongodb.github.io/mongo-csharp-driver/)
 * **NLog** .NET Logging (http://nlog-project.org/)
+
+The above libraries were installed from the NuGet  public repository (https://www.nuget.org) via the **.Net Core CLI**
